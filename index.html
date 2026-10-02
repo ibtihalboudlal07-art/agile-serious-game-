@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#223A5E">
+  <title>Product Owner — Serious Game</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="questions.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Product Owner Learning"><span class="brand-mark">P</span><span>PRODUCT OWNER <small>LEARNING</small></span></a>
+    <div class="header-actions"><span class="header-tag" data-i18n="learning">APPRENTISSAGE · SCRUM</span><label class="language-switch"><span class="sr-only" data-i18n="language">Langue</span><select id="languageSelect" aria-label="Language"><option value="fr">FR</option><option value="en">EN</option></select></label></div>
+  </header>
+  <main class="main-shell">
+    <section id="homeScreen" class="screen hero-layout" aria-labelledby="homeTitle">
+      <div class="hero-copy"><span class="eyebrow" data-i18n="eyebrow">SERIOUS GAME · PRODUCT OWNERSHIP</span><h1 id="homeTitle" data-i18n="homeTitle">Faites grandir la valeur.<br><em>Une décision à la fois.</em></h1><p class="hero-description" data-i18n="intro">Évaluez vos connaissances du rôle de Product Owner au fil d’un parcours interactif inspiré des principes Scrum.</p><div class="hero-buttons"><button id="startButton" class="button button-primary" data-i18n="start">Commencer le parcours <span aria-hidden="true">→</span></button><span class="quiet-note" data-i18n="timeHint">À votre rythme · 100 questions</span></div></div>
+      <aside class="hero-panel" aria-label="Informations du parcours"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="panel-content"><span class="panel-label" data-i18n="yourChallenge">VOTRE PARCOURS</span><div class="big-number">100<span data-i18n="questions">questions</span></div><p data-i18n="challengeCopy">Une question après l’autre. Votre progression est conservée.</p><div class="panel-divider"></div><div class="pass-row"><span class="pass-icon">✓</span><span data-i18n="passThreshold">Seuil de réussite</span><strong>70%</strong></div></div></aside>
+      <div class="hero-footer"><span class="footer-dot"></span><span data-i18n="footerLine">Clarté · Priorisation · Valeur durable</span><span class="footer-rule"></span><span>SERIOUS GAME</span></div>
+    </section>
+
+    <section id="quizScreen" class="screen quiz-screen hidden" aria-labelledby="questionText">
+      <div class="quiz-topline"><div><span class="eyebrow" data-i18n="quizEyebrow">VOTRE PARCOURS</span><h1 class="quiz-heading" data-i18n="quizHeading">Product Owner · Les fondamentaux</h1></div><button id="quitButton" class="text-button" data-i18n="quit">Quitter</button></div>
+      <div class="progress-card"><div class="progress-meta"><span id="progressLabel">Question 1 / 100</span><span id="progressPercent">1%</span></div><div class="progress-track" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="1"><div id="progressFill" class="progress-fill"></div></div></div>
+      <article class="question-card"><div class="question-kicker"><span id="questionNumber" class="question-number">01</span><span data-i18n="singleAnswer">UNE SEULE RÉPONSE</span></div><h2 id="questionText" tabindex="-1"></h2><div id="optionsList" class="options-list" role="radiogroup" aria-labelledby="questionText"></div><p id="answerHint" class="answer-hint" aria-live="polite"></p></article>
+      <div class="quiz-controls"><button id="previousButton" class="button button-outline" data-i18n="previous">← Précédent</button><div class="control-center"><span id="answeredCount">0 / 100 répondues</span><button id="validateButton" class="text-button" data-i18n="validate">Valider la réponse</button><button id="finishButton" class="text-button" data-i18n="finish">Terminer le quiz</button></div><button id="nextButton" class="button button-primary" data-i18n="next">Suivant →</button></div>
+      <p id="unansweredWarning" class="warning-message hidden" role="alert"></p>
+    </section>
+
+    <section id="resultScreen" class="screen result-screen hidden" aria-labelledby="resultTitle">
+      <span class="eyebrow" data-i18n="resultEyebrow">VOTRE RÉSULTAT</span><div id="resultBadge" class="result-badge" aria-hidden="true">✦</div><h1 id="resultTitle"></h1><p id="resultMessage" class="result-message"></p>
+      <div class="score-card"><div><span data-i18n="correctAnswers">Bonnes réponses</span><strong id="correctScore">0 / 100</strong></div><div><span data-i18n="incorrectAnswers">Mauvaises réponses</span><strong id="incorrectScore">0</strong></div><div><span data-i18n="scoreLabel">Score</span><strong id="percentScore">0%</strong></div></div>
+      <div id="passActions" class="result-actions hidden"><p data-i18n="certificatePrompt">Bravo ! Indiquez votre nom complet pour préparer votre certificat.</p><div class="name-form"><label for="participantName" data-i18n="fullName">Nom et prénom complet</label><input id="participantName" type="text" autocomplete="name" maxlength="100" required><p id="nameError" class="field-error hidden" role="alert"></p><button id="certificateButton" class="button button-primary" data-i18n="getCertificate">Obtenir mon certificat →</button></div></div>
+      <div id="failActions" class="result-actions hidden"><button id="restartButton" class="button button-primary" data-i18n="restart">Recommencer</button></div>
+    </section>
+
+    <section id="certificateScreen" class="screen certificate-screen hidden" aria-labelledby="certificateHeading">
+      <div class="certificate-toolbar"><div><span class="eyebrow" data-i18n="certificateEyebrow">VOTRE ACCOMPLISSEMENT</span><h1 id="certificateHeading" data-i18n="certificateReady">Votre certificat est prêt</h1></div><button id="backToResult" class="button button-outline" data-i18n="backToResult">← Résultats</button></div>
+      <div id="certificate" class="certificate" aria-label="Certificate">
+        <div class="cert-inner"><div class="cert-top"><div class="cert-brand"><span class="cert-seal">P</span><span>PRODUCT OWNER<br><small>LEARNING</small></span></div><span id="certId" class="cert-id"></span></div><div class="cert-body"><p id="certKicker" class="cert-kicker"></p><h2 id="certTitle"></h2><p id="certIntro" class="cert-intro"></p><p id="certName" class="cert-name"></p><p id="certCourse" class="cert-course"></p><p id="certAchievement" class="cert-achievement"></p><div class="cert-stats"><span id="certDate"></span><span id="certScore"></span></div></div><div class="cert-footer"><div class="signature-block"><span class="signature" aria-hidden="true"></span><span id="certSigner" class="cert-signer"></span></div><div class="cert-rosette"><span>✦</span><small id="certSealText"></small></div><div id="certOrg" class="cert-org"></div></div></div>
+      </div>
+      <div class="certificate-actions"><button id="downloadButton" class="button button-primary" data-i18n="downloadPdf">Télécharger le certificat PDF</button><button id="restartAfterCert" class="text-button" data-i18n="restart">Recommencer</button></div><p class="print-note" data-i18n="pdfNote">Le dialogue d’impression du navigateur s’ouvre. Choisissez « Enregistrer au format PDF » et le format A4 paysage.</p>
+    </section>
+  </main>
+  <footer class="site-footer"><span>© SERIOUS GAME</span><span data-i18n="footerCaption">Un parcours d’apprentissage interactif</span></footer>
+  <noscript>Ce jeu nécessite JavaScript activé dans votre navigateur. / This game requires JavaScript enabled in your browser.</noscript>
+</body>
+</html>
